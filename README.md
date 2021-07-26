@@ -41,3 +41,20 @@ Asimismo, existen otros subsistemas y dispositivos de Linux que no tienen espaci
 El daemon de Docker también puede ser una preocupación en materia de seguridad. Para usar y ejecutar los contenedores Docker, es muy probable que utilice el daemon de Docker, un tiempo de ejecución persistente para los contenedores. El daemon de Docker requiere privilegios de raíz, por lo que se debe prestar especial atención a quiénes obtienen acceso al proceso y en dónde reside este. Por ejemplo, un daemon local tiene una superficie de ataque más pequeña que uno que se encuentra en un sitio más público, como un servidor web.
 
 > Tomado del sitio web oficial de RedHat
+
+# Arquitectura Básica de Docker
+![Arquitectura Docker](https://i.postimg.cc/sXXf7srL/Arquitectura-Docker.jpg)
+Docker host: Host o servidor desde el cual se ejecuta Docker
+## Que es una imagen y como se Compone
+Cada comando del archivo Dockerfile funciona como una capa dentro de la imagen, usualmente el primer comando ejecutado es un “FROM” que suele indicar el sistema operativo que tendrá configurada la imagen; El segundo comando, indica la aplicación que a instalar (por ejemplo, para sistemas que usen el gestor de paquete “yum” se usuaria este comando para instalar la aplicación); El comando CMD ejecuta la orden que inicial el programa instalado previamente en RUN.
+![Arquitectura Imagenes](https://i.postimg.cc/q790hn1N/Arquitectura-Imagenes.jpg)
+### Ejemplo de un Dockerfile
+![Ejemplo Dockerfile](https://i.postimg.cc/3rj7Nkmw/Ejemplo-Docker-File.jpg)
+Como decíamos previamente, cada comando es una capa de la imágen de Docker.
+
+## ¿Que es un contenedor?
+Una Contenedor puede verse como una capa adicional que ejecuta las instrucciones dadas en las imágenes. A diferencia de las imágenes que funcionan solo en lectura (Read Only), los contenedores funcionando tanto en lectura como en escritura (Read and Write) por lo que es posible modificar las capas de la imagen desde un contenedor, sin embargo, esto no es recomendable dado que las modificaciones realizadas sobre un contenedor no serán persistentes, es decir, no modifican la imagen sino únicamente el contenedor y una vez este sea eliminado, se perderán los cambios realizados a la imagen. 
+![Arquitectura Contenedores](https://i.postimg.cc/Wb64B9XX/Arquitectura-Contenedores.jpg)
+## ¿Qué contiene un Contenedor?
+Un contenedor puede contener imágenes, volúmenes y redes.
+![Contenido contenedor](https://i.postimg.cc/sfm8b755/Contenido-Contenedor.jpg)
