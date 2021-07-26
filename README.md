@@ -60,65 +60,65 @@ Un contenedor puede contener imágenes, volúmenes y redes.
 ![Contenido contenedor](https://i.postimg.cc/sfm8b755/Contenido-Contenedor.jpg)
 
 ## Comandos Importantes
-**Subir Contenedores**
-docker-compose up
-**Subir Contenedores en segundo plano**
-docker-compose up -d 
-**Subir una imagen con un nombre distinto al nombre por defecto usado en Dockerfile o docker-composer**
-docker-compose -f docker-compose-jenkins.yml up -d
-**Bajar imágenes desde la mas pequeña hasta la mas grande**
-docker-compuse down
-**Eliminar imagenes (Por id o nombre)**
-docker rm idImagen
-**Listar Imagenes**
-*docker ps*
-*docker image ls*
-**Listar contenedores Docker Compose**
-docker-compose ps
-**Revisar log de un contenedor**
-docker logs -f codimd_codimd_1
-**Iniciar un contenedor**
-docker container start nombreContenedor
-**Reiniciar contenedor**
-docker container restart nombreContenedor
-**Detener un contenedor**
-docker container stop nombreContenedor
-**Para no tener que ingresar sudo en cada comando de docker**
-sudo usermod -aG docker nombreUsuario
-**Obtener información de una imagen**
-docker inspect nombreImagen
-**Escalar de manera Horizontal y crear varios contenedores de una aplicación**
+**Subir Contenedores**  
+docker-compose up  
+**Subir Contenedores en segundo plano**  
+docker-compose up -d  
+**Subir una imagen con un nombre distinto al nombre por defecto usado en Dockerfile o docker-composer**  
+docker-compose -f docker-compose-jenkins.yml up -d  
+**Bajar imágenes desde la mas pequeña hasta la mas grande**  
+docker-compuse down  
+**Eliminar imagenes (Por id o nombre)**  
+docker rm idImagen  
+**Listar Imagenes**  
+*docker ps*  
+*docker image ls*  
+**Listar contenedores Docker Compose**  
+docker-compose ps  
+**Revisar log de un contenedor**  
+docker logs -f codimd_codimd_1  
+**Iniciar un contenedor**  
+docker container start nombreContenedor  
+**Reiniciar contenedor**  
+docker container restart nombreContenedor  
+**Detener un contenedor**  
+docker container stop nombreContenedor  
+**Para no tener que ingresar sudo en cada comando de docker**  
+sudo usermod -aG docker nombreUsuario  
+**Obtener información de una imagen**  
+docker inspect nombreImagen  
+**Escalar de manera Horizontal y crear varios contenedores de una aplicación**  
 
 Comando docker-compose up --scale web=5 -d
 
 
-### Enlaces interesantes
-**Crear imagen desde contenedor corriendo**
-https://docs.docker.com/engine/reference/commandline/commit/ 
-**Página web profesor**
-https://jsgiraldoh.io
-[Archivos Docker Compose](https://jsgiraldoh.io/Blog/Archivo-docker-compose)
-**Instalar Docker**
-https://docs.docker.com/engine/install/ubuntu/
-**Instalar Docker Compose**
-https://docs.docker.com/compose/install/
+### Enlaces interesantes  
+**Crear imagen desde contenedor corriendo**  
+https://docs.docker.com/engine/reference/commandline/commit/   
+**Página web profesor**  
+https://jsgiraldoh.io  
+[Archivos Docker Compose](https://jsgiraldoh.io/Blog/Archivo-docker-compose)  
+**Instalar Docker**  
+https://docs.docker.com/engine/install/ubuntu/  
+**Instalar Docker Compose**  
+https://docs.docker.com/compose/install/  
 
 
-## Instalación de jenkins
-Usamos el comando **git clone https://github.com/jsgiraldoh/Jenkins**
-Hacemos cd Jenkins (carpeta que se crea al clonar jenkins)
-Esto es necesario para archivos que tienen un nombre especifico distinto a **Docker-compose.yml**, por ejemplo, en el caso de Jenkins:
-**docker-compose -f docker-compose-jenkins.yml up -d**
-Debemos otorgar permisos
-**sudo chown ubuntu:ubuntu jenkins_home/**
-**sudo chmod 2777 jenkins_home/**
-Montamos nuevamente con docker-compose
-Vamos a la dirección ip del Docker host:8090 por ejemplo:
-http://192.168.20.43:8090
-Y ejecutamos el comando para que nos devuelva la contraseña
-**docker logs -f Jenkins**
-![](https://i.postimg.cc/vZ98M0Y4/jenkins-key.jpg)
-Después instalamos los plugins Recomendados de Jenkins
-![](https://i.postimg.cc/Fz7m6ZCs/jenkins-instaal.jpg)
-Por ultimo, se ingresan los datos para crear el usuario y finalmente se carga el menú principal de Jenkins
-[![jj.jpg](https://i.postimg.cc/PxFn1DfG/jj.jpg)](https://postimg.cc/bDb5hs2L)
+## Instalación de jenkins  
+Usamos el comando **git clone https://github.com/jsgiraldoh/Jenkins**  
+Hacemos cd Jenkins (carpeta que se crea al clonar jenkins)  
+Esto es necesario para archivos que tienen un nombre especifico distinto a **Docker-compose.yml**, por ejemplo, en el caso de Jenkins:  
+**docker-compose -f docker-compose-jenkins.yml up -d**  
+Debemos otorgar permisos  
+**sudo chown ubuntu:ubuntu jenkins_home/**  
+**sudo chmod 2777 jenkins_home/**  
+Montamos nuevamente con docker-compose  
+Vamos a la dirección ip del Docker host:8090 por ejemplo:  
+http://192.168.20.43:8090  
+Y ejecutamos el comando para que nos devuelva la contraseña  
+**docker logs -f Jenkins**  
+![](https://i.postimg.cc/vZ98M0Y4/jenkins-key.jpg)  
+Después instalamos los plugins Recomendados de Jenkins  
+![](https://i.postimg.cc/Fz7m6ZCs/jenkins-instaal.jpg)  
+Por ultimo, se ingresan los datos para crear el usuario y finalmente se carga el menú principal de Jenkins  
+[![jj.jpg](https://i.postimg.cc/PxFn1DfG/jj.jpg)](https://postimg.cc/bDb5hs2L)  
