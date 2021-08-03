@@ -67,7 +67,7 @@ docker-compose up -d
 **Subir una imagen con un nombre distinto al nombre por defecto usado en Dockerfile o docker-composer**  
 docker-compose -f docker-compose-jenkins.yml up -d  
 **Bajar imágenes desde la mas pequeña hasta la mas grande**  
-docker-compuse down  
+docker-compose down  
 **Eliminar imagenes (Por id o nombre)**  
 docker rm idImagen  
 **Listar Imagenes**  
