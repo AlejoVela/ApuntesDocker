@@ -1,2 +1,3 @@
-FROM nginx 
-COPY static-html-directory /usr/share/nginx/html
+FROM nginx
+WORKDIR /usr/share/nginx/html
+COPY WebCalculator .

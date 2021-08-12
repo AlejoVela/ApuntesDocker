@@ -1,4 +1,6 @@
 FROM centos
 RUN yum install httpd -y
-COPY testingAPIS /var/www/html
+WORKDIR /var/www/html
+ENV PORT 3200
+COPY testingAPIS .
 CMD apachectl -DFOREGROUND
