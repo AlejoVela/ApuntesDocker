@@ -60,37 +60,86 @@ Un contenedor puede contener imágenes, volúmenes y redes.
 ![Contenido contenedor](https://i.postimg.cc/sfm8b755/Contenido-Contenedor.jpg)
 
 ## Comandos Importantes
-**Subir Contenedores**  
-docker-compose up  
-**Subir Contenedores en segundo plano**  
+Trae imágenes oficiales de un repositorio de Docker hub
+```
+docker pull nombreImagen
+```
+Lista las imágenes en el sistema
+```
+docker image ls
+```
+Lista las imágenes en el sistema y las filtra por nombre de imagen
+```
+docker image ls | grep nombreImage
+```
+Construye una imagen de docker a partir del archivo Docker file que creemos
+```
+docker build --tag apache-centos:primeraVersion . 
+```
+Muestra el historial de capas creadas en una imagen
+```
+docker history -H nombreImagen:tag
+```
+Lista contenedores
+```
+docker ps
+```
+Correr una imagen dentro de un contenedor en segundo plano con el argumento -d, asignando un nombre al contenedor en el argumento –name y un puerto para exponer la aplicación en el argumento -p.
+```
+docker run -d --name apache -p 3207:80 apache-centos:apache-cmd
+```
+**Subir Contenedores**
+```
+docker-compose up
+```
+**Subir Contenedores en segundo plano**
+```
 docker-compose up -d  
+```
 **Subir una imagen con un nombre distinto al nombre por defecto usado en Dockerfile o docker-composer**  
+```
 docker-compose -f docker-compose-jenkins.yml up -d  
+```
 **Bajar imágenes desde la mas pequeña hasta la mas grande**  
+```
 docker-compose down  
+```
 **Eliminar imagenes (Por id o nombre)**  
+```
 docker rm idImagen  
-**Listar Imagenes**  
-*docker ps*  
-*docker image ls*  
+```
 **Listar contenedores Docker Compose**  
+```
 docker-compose ps  
+```
 **Revisar log de un contenedor**  
+```
 docker logs -f codimd_codimd_1  
+```
 **Iniciar un contenedor**  
+```
 docker container start nombreContenedor  
+```
 **Reiniciar contenedor**  
+```
 docker container restart nombreContenedor  
+```
 **Detener un contenedor**  
+```
 docker container stop nombreContenedor  
+```
 **Para no tener que ingresar sudo en cada comando de docker**  
+```
 sudo usermod -aG docker nombreUsuario  
+```
 **Obtener información de una imagen**  
+```
 docker inspect nombreImagen  
+```
 **Escalar de manera Horizontal y crear varios contenedores de una aplicación**  
-
+```
 Comando docker-compose up --scale web=5 -d
-
+```
 
 ### Enlaces interesantes  
 **Crear imagen desde contenedor corriendo**  
@@ -108,15 +157,23 @@ https://docs.docker.com/compose/install/
 Usamos el comando **git clone https://github.com/jsgiraldoh/Jenkins**  
 Hacemos cd Jenkins (carpeta que se crea al clonar jenkins)  
 Esto es necesario para archivos que tienen un nombre especifico distinto a **Docker-compose.yml**, por ejemplo, en el caso de Jenkins:  
-**docker-compose -f docker-compose-jenkins.yml up -d**  
+```
+docker-compose -f docker-compose-jenkins.yml up -d  
+```
 Debemos otorgar permisos  
-**sudo chown ubuntu:ubuntu jenkins_home/**  
-**sudo chmod 2777 jenkins_home/**  
+```
+sudo chown ubuntu:ubuntu jenkins_home/  
+```
+```
+sudo chmod 2777 jenkins_home/  
+```
 Montamos nuevamente con docker-compose  
 Vamos a la dirección ip del Docker host:8090 por ejemplo:  
 http://192.168.20.43:8090  
 Y ejecutamos el comando para que nos devuelva la contraseña  
-**docker logs -f Jenkins**  
+```
+docker logs -f Jenkins  
+```
 ![](https://i.postimg.cc/vZ98M0Y4/jenkins-key.jpg)  
 Después instalamos los plugins Recomendados de Jenkins  
 ![](https://i.postimg.cc/Fz7m6ZCs/jenkins-instaal.jpg)  
