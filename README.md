@@ -169,10 +169,10 @@ sudo chmod 2777 jenkins_home/
 ```
 Montamos nuevamente con docker-compose  
 Vamos a la dirección ip del Docker host:8090 por ejemplo:  
-http://192.168.20.43:8090  
+http://192.168.20.45:8090  
 Y ejecutamos el comando para que nos devuelva la contraseña  
 ```
-docker logs -f Jenkins  
+docker logs -f jenkins  
 ```
 ![](https://i.postimg.cc/vZ98M0Y4/jenkins-key.jpg)  
 Después instalamos los plugins Recomendados de Jenkins  
